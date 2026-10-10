@@ -1,0 +1,102 @@
+.main {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 200px;
+}
+
+#contact-info {
+  max-width: 600px;
+  margin-top: 50px;
+  padding: 40px;
+  background-color: #f4f4f9;
+  border-radius: 10px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+#contact-info h2 {
+  font-size: 32px;
+  color: #2c3e50;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: bold;
+}
+#contact-info .knjige-table {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+#contact-info .knjige-table td {
+  cursor: pointer;
+}
+#contact-info .knjige-table th, #contact-info .knjige-table td {
+  padding: 15px;
+  text-align: center;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+#contact-info .knjige-table th {
+  background-color: white;
+  color: #2c3e50;
+}
+#contact-info .knjige-table tr:hover {
+  background-color: #f1f1f1;
+}
+#contact-info .knjiga-details {
+  text-align: left;
+  font-size: 14px;
+  color: #2c3e50;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  padding: 10px;
+}
+#contact-info .knjiga-details p {
+  border: 1px solid #ddd;
+  padding: 10px;
+  line-height: 1.8;
+}
+
+.Form {
+  width: 400px;
+  margin-top: 50px;
+  box-sizing: border-box;
+  border: 2px solid gray;
+  padding: 20px;
+  border-radius: 10px;
+  background-color: white;
+}
+
+#AddTourForm {
+  width: 100%;
+}
+#AddTourForm label {
+  display: block;
+  text-align: left;
+  margin-bottom: 5px;
+}
+#AddTourForm input {
+  width: 100%;
+  box-sizing: border-box;
+  border: none;
+  border-bottom: 1px solid black;
+  margin-bottom: 15px;
+  padding: 5px;
+}
+#AddTourForm button {
+  padding: 3px 8px;
+}
+
+#submitBtn {
+  margin-top: 10px;
+  padding: 8px 20px;
+}
+
+.contact-item {
+  margin-bottom: 20px;
+}
+
+/*# sourceMappingURL=PregledKnJiga.css.map */
