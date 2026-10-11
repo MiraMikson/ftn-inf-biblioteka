@@ -19,6 +19,20 @@
     <div class="main">
         <div id="contact-info">
             <h2>Online Biblioteka</h2>
+            <form id="nova-knjiga-forma">
+                <h3>Dodaj novu knjigu</h3>
+                <label for="naziv-knjige">Naziv:</label>
+                <input id="naziv-knjige" type="text" required>
+                <label for="datum-stampanja">Godina štampanja:</label>
+                <input id="datum-stampanja" type="number" min="1" required>
+                <label for="url-slike">Putanja ili URL slike:</label>
+                <input id="url-slike" type="text" required>
+                <label for="opis-knjige">Opis:</label>
+                <textarea id="opis-knjige" required></textarea>
+                <label for="popularnost-knjige">Popularnost (1–5):</label>
+                <input id="popularnost-knjige" type="number" min="1" max="5" value="1" required>
+                <button id="dodaj-knjigu" type="button">Dodaj knjigu</button>
+            </form>
             <div class="knjige-table">
                   <table id="knjige">
                     <thead>
@@ -38,6 +52,6 @@
     
          
     </div>
-    <script src="PregledKnjiga.js"></script>
+    <script src="PregledKnJiga.js"></script>
     </body>
 </html>

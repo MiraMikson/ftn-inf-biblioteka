@@ -25,7 +25,36 @@ function inicijalizacijaKnjiga(){
      localStorage.setItem("knjige", JSON.stringify(knjige));
     }
     prikaziKnjige();
+    dodavanjeKnjige();
  
+}
+
+function dodavanjeKnjige() {
+    let dugme = document.querySelector("#dodaj-knjigu");
+
+    dugme.addEventListener("click", function() {
+        let forma = document.querySelector("#nova-knjiga-forma");
+        if (!forma.reportValidity()) {
+            return;
+        }
+
+        let naziv = document.querySelector("#naziv-knjige").value.trim();
+        let datumStampanja = document.querySelector("#datum-stampanja").value;
+        let urlSlike = document.querySelector("#url-slike").value.trim();
+        let opis = document.querySelector("#opis-knjige").value.trim();
+        let popularnost = Number(document.querySelector("#popularnost-knjige").value);
+
+        // Sledeći ID ostaje jedinstven i nakon brisanja neke knjige.
+        let id = String(Math.max(0, ...knjige.map(function(knjiga) {
+            return Number(knjiga.id);
+        })) + 1);
+        let novaKnjiga = new Knjiga(id, naziv, datumStampanja, urlSlike, opis, popularnost);
+
+        knjige.push(novaKnjiga);
+        localStorage.setItem("knjige", JSON.stringify(knjige));
+        prikaziKnjige();
+        forma.reset();
+    });
 }
 
 function prikaziKnjige() {
