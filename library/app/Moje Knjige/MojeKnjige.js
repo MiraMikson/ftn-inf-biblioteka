@@ -12,26 +12,25 @@ class Knjiga{
 }
 let knjige = [];
 let iznajmljeneKnjige = [];
+let dostupneKnjige = [];
 
 function inicijalizacijaKnjiga(){
     let sacuvaneKnjige=localStorage.getItem("knjige");
     if(sacuvaneKnjige !== null){
         knjige=JSON.parse(sacuvaneKnjige)
- 
     }
     
     let sacuvaneIznajmljene=localStorage.getItem("iznajmljeneKnjige");
-    if(sacuvaneIznajmljene === null || JSON.parse(sacuvaneIznajmljene).length === 0){
-        iznajmljeneKnjige = [knjige[0], knjige[1]];
-        localStorage.setItem("iznajmljeneKnjige",JSON.stringify(iznajmljeneKnjige))
+    if (sacuvaneIznajmljene === null) {
+    iznajmljeneKnjige = [];
     } else {
-       iznajmljeneKnjige = JSON.parse(sacuvaneIznajmljene);
-        
-        
+    iznajmljeneKnjige = JSON.parse(sacuvaneIznajmljene);
     }
+        
     prikaziIznajmljeneKnjige();
- 
+    prikaziDostupneKnjige();
 }
+
 
 function prikaziIznajmljeneKnjige() {
     let table=document.querySelector("#iznajmljene-knjige-body");
@@ -54,6 +53,7 @@ function prikaziIznajmljeneKnjige() {
             iznajmljeneKnjige.splice(i, 1);
             localStorage.setItem("iznajmljeneKnjige", JSON.stringify(iznajmljeneKnjige));   
             prikaziIznajmljeneKnjige();
+            prikaziDostupneKnjige();
         })
 
         vrati.appendChild(vratiBtn);
@@ -67,10 +67,44 @@ function prikaziIznajmljeneKnjige() {
     }
 
 }
+function prikaziDostupneKnjige() {
+    dostupneKnjige = knjige.filter(function(knjiga) {
+        return !iznajmljeneKnjige.some(function(iznajmljena) {
+            return iznajmljena.id === knjiga.id;
+        });
+    });
+    let table=document.querySelector("#dostupne-knjige-body");
+    table.innerHTML="";
 
+    for(let i=0; i<dostupneKnjige.length; i++){
+        let knjiga = dostupneKnjige[i];
+        
+        let tr=document.createElement("tr");
+        let br=document.createElement("td");
+        br.textContent=knjiga.id;
+        
+        let naziv =document.createElement("td");
+        naziv.textContent = knjiga.naziv;
 
+        let iznajmi=document.createElement("td");
+        let iznajmiBtn=document.createElement("button");
+        iznajmiBtn.textContent="Iznajmi";
 
+        iznajmiBtn.addEventListener("click", function(){
+            iznajmljeneKnjige.push(knjiga);
 
+            localStorage.setItem("iznajmljeneKnjige", JSON.stringify(iznajmljeneKnjige));
+            prikaziIznajmljeneKnjige();
+            prikaziDostupneKnjige();
+        })
 
+        iznajmi.appendChild(iznajmiBtn);
+        tr.appendChild(br);
+        tr.appendChild(naziv);
+        tr.appendChild(iznajmi);
+        table.appendChild(tr);
+    }
+
+}
 
 document.addEventListener("DOMContentLoaded", inicijalizacijaKnjiga)

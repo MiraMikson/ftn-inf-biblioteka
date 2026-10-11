@@ -73,10 +73,11 @@ function prikaziKnjige() {
         naziv.textContent=knjige[i].naziv;
         obrisiBtn.textContent="Obrisi";
 
-        obrisiBtn.addEventListener("click", function(){
-            let index=knjige.indexOf(knjige[i]);
-            knjige.splice(index, 1);
-             tr.remove();
+        obrisiBtn.addEventListener("click", function(event){
+            event.stopPropagation();
+            knjige.splice(i, 1);
+            localStorage.setItem("knjige", JSON.stringify(knjige));
+            prikaziKnjige();
         })
 
         obrisi.appendChild(obrisiBtn);

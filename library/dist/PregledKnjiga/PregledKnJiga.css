@@ -7,13 +7,15 @@
 }
 
 #contact-info {
-  max-width: 600px;
-  margin-top: 50px;
-  padding: 40px;
-  background-color: #f4f4f9;
-  border-radius: 10px;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-  text-align: center;
+  width: 100%;
+  max-width: 1100px;
+  box-sizing: border-box;
+  margin-top: 40px;
+  padding: 0 20px;
+  background: transparent;
+  border-radius: 0;
+  box-shadow: none;
+  text-align: left;
 }
 #contact-info h2 {
   font-size: 32px;
@@ -44,7 +46,8 @@
   color: #2c3e50;
 }
 #contact-info .knjige-table tr:hover {
-  background-color: #f1f1f1;
+  background-color: #007bff;
+  color: white;
 }
 #contact-info .knjiga-details {
   text-align: left;
@@ -97,6 +100,139 @@
 
 .contact-item {
   margin-bottom: 20px;
+}
+
+.knjige-layout {
+  display: flex;
+  align-items: flex-start;
+  gap: 40px;
+}
+.knjige-layout > .knjige-table {
+  flex: 0 0 auto;
+  width: auto;
+  margin: 0;
+}
+.knjige-layout > .knjige-table table {
+  border-collapse: collapse;
+}
+.knjige-layout .dodavanje-knjige {
+  box-sizing: border-box;
+  padding: 24px;
+  border: 2px solid #555;
+  border-radius: 8px;
+  background-color: white;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+.knjige-layout .polje {
+  display: flex;
+  align-items: baseline;
+  gap: 20px;
+  margin-bottom: 22px;
+}
+.knjige-layout .polje label {
+  flex: 0 0 150px;
+  font-size: 14px;
+}
+.knjige-layout .polje input,
+.knjige-layout .polje textarea {
+  flex: 1;
+  width: 100%;
+  min-width: 0;
+  padding: 5px;
+  border: none;
+  border-bottom: 1px solid #333;
+  border-radius: 0;
+  background: transparent;
+  color: #222;
+  font: inherit;
+}
+.knjige-layout .polje input:focus,
+.knjige-layout .polje textarea:focus {
+  outline: none;
+  border-bottom: 2px solid #245a81;
+}
+.knjige-layout button {
+  display: block;
+  margin-left: auto;
+  padding: 6px 12px;
+  border: 1px solid #555;
+  border-radius: 5px;
+  background: white;
+  font: inherit;
+  cursor: pointer;
+}
+.knjige-layout button:hover {
+  background: #eee;
+}
+
+@media (max-width: 800px) {
+  .knjige-layout {
+    flex-direction: column;
+  }
+  .knjige-layout .dodavanje-knjige {
+    flex: 0 0 auto;
+    width: 100%;
+    max-width: 360px;
+  }
+}
+#contact-info {
+  width: 100%;
+  max-width: 1100px;
+  box-sizing: border-box;
+  background: transparent;
+  box-shadow: none;
+}
+
+#contact-info .knjige-layout {
+  display: flex;
+  align-items: flex-start;
+  gap: 30px;
+}
+#contact-info .knjige-layout > .knjige-table,
+#contact-info .knjige-layout > .dodavanje-knjige {
+  display: block;
+  flex: 1;
+  min-width: 0;
+  width: auto;
+  min-height: 380px;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 24px;
+  border: 2px solid #555;
+  border-radius: 8px;
+  background: white;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+#contact-info .knjige-layout > .knjige-table table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+@media (max-width: 800px) {
+  #contact-info .knjige-layout {
+    flex-direction: column;
+  }
+  #contact-info .knjige-layout > .knjige-table,
+  #contact-info .knjige-layout > .dodavanje-knjige {
+    width: 100%;
+  }
+}
+#popularnost-knjige {
+  flex: 0 0 60px;
+  width: 60px;
+  padding: 6px;
+  border: 1px solid #555;
+  border-radius: 4px;
+  background-color: white;
+}
+#popularnost-knjige:focus {
+  border: 1px solid #245a81;
+  outline: 2px solid #245a81;
+}
+
+#contact-info table tbody tr:hover {
+  background-color: #007bff;
+  color: white;
 }
 
 /*# sourceMappingURL=PregledKnJiga.css.map */

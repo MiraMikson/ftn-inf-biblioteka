@@ -12,46 +12,63 @@
             <h1 class="title">Online Biblioteka</h1>
             <ul class="nav-links">
                 <li><a href="../contact/contact.html">Kontakt</a></li>
-                <li><a href="PregledKnjiga.html">Pregled Knjiga</a></li>
+                <li><a href="PregledKnJiga.html">Pregled Knjiga</a></li>
                 <li><a href="../Moje Knjige/MojeKnjige.html">Moje Knjige</a></li>
             </ul>
         </nav>
     <div class="main">
-        <div id="contact-info">
-            <h2>Online Biblioteka</h2>
-            <form id="nova-knjiga-forma">
-                <h3>Dodaj novu knjigu</h3>
-                <label for="naziv-knjige">Naziv:</label>
-                <input id="naziv-knjige" type="text" required>
-                <label for="datum-stampanja">Godina štampanja:</label>
-                <input id="datum-stampanja" type="number" min="1" required>
-                <label for="url-slike">Putanja ili URL slike:</label>
-                <input id="url-slike" type="text" required>
-                <label for="opis-knjige">Opis:</label>
-                <textarea id="opis-knjige" required></textarea>
-                <label for="popularnost-knjige">Popularnost (1–5):</label>
-                <input id="popularnost-knjige" type="number" min="1" max="5" value="1" required>
+    <div id="contact-info">
+        <h2>Online Biblioteka</h2>
+
+        <div class="knjige-layout">
+            <div class="knjige-table">
+                <table id="knjige">
+                    <thead>
+                        <tr>
+                            <th>Br</th>
+                            <th>Naziv</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody id="knjige-body"></tbody>
+                </table>
+            </div>
+
+            <form id="nova-knjiga-forma" class="dodavanje-knjige">
+                <h3>Dodavanje nove knjige</h3>
+
+                <div class="polje">
+                    <label for="naziv-knjige">Naziv knjige:</label>
+                    <input id="naziv-knjige" type="text" required>
+                </div>
+
+                <div class="polje">
+                    <label for="datum-stampanja">Datum štampanja:</label>
+                    <input id="datum-stampanja" type="text" required>
+                </div>
+
+                <div class="polje">
+                    <label for="url-slike">URL slike:</label>
+                    <input id="url-slike" type="text" required>
+                </div>
+
+                <div class="polje">
+                    <label for="opis-knjige">Opis knjige:</label>
+                    <input id="opis-knjige" type="text" required>
+                </div>
+
+                <div class="polje">
+                    <label for="popularnost-knjige">Popularnost (1–5):</label>
+                    <input id="popularnost-knjige" type="number"
+                           min="1" max="5" step="1" value="1" required>
+                </div>
+
                 <button id="dodaj-knjigu" type="button">Dodaj knjigu</button>
             </form>
-            <div class="knjige-table">
-                  <table id="knjige">
-                    <thead>
-                       <tr>
-                          <th>Br</th>
-                          <th>Naziv</th>
-                          <th></th>
-                          
-                      </tr>
-                    </thead>
-                    <tbody id="knjige-body"> 
-                    </tbody>
-                  </table>
-            </div>
-            <div class="knjiga-details"></div> 
-        </div> 
-    
-         
-    </div>
-    <script src="PregledKnJiga.js"></script>
-    </body>
+        </div>
+        <div class="knjiga-details"></div> 
+    </div> 
+</div>
+<script src="PregledKnJiga.js"></script>
+</body>
 </html>
